@@ -40,5 +40,4 @@ describe("i18NText matcher", () => {
         expect(buttonText).toEqual("User Test Text")
     })
 
-    it("use 18n with parameters other than propertyName and key")
 })

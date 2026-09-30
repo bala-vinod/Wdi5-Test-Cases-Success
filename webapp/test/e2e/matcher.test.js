@@ -82,30 +82,6 @@ describe("ui5 matcher tests", () => {
         expect(sButtonText).toEqual("to Other view")
     })
 
-    // TODO: ciblings matacher with options parameter
-    it.skip("check siblings matcher next Occurance", async () => {
-        const siblingsSelector = {
-            selector: {
-                controlType: "sap.m.Button",
-                sibling: {
-                    viewName: "test.Sample.view.Main",
-                    controlType: "sap.m.Button",
-                    properties: {
-                        text: "open Barcodescanner"
-                    },
-                    options: {
-                        next: true
-                    }
-                }
-            }
-        }
-
-        const button = await browser.asControl(siblingsSelector)
-
-        const sButtonText = await button.getText()
-        expect(sButtonText).toEqual("open Dialog")
-    })
-
     it("check interactable matcher", async () => {
         const interactableSelector = {
             selector: {
@@ -121,20 +97,6 @@ describe("ui5 matcher tests", () => {
         const text = await button.getText()
         wdi5.getLogger("interactable").log(`//> button text is ${await button.getText()}`)
         expect(sButtonStatus).toBeTruthy()
-    })
-
-    it.skip("check non-interactable matcher", async () => {
-        const notInteractableSelector = {
-            selector: {
-                controlType: "sap.m.Button",
-                viewName: "test.Sample.view.Main",
-                interactable: false
-            }
-        }
-
-        const text = await browser.asControl(notInteractableSelector).getText()
-
-        expect(text).toBe("can't click :(")
     })
 
     // #131
